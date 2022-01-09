@@ -10,7 +10,7 @@
     $router -> register("getPlacesAsid","Place","getPlacesAsid");
     $router -> register("getStatusPlaces","Place","getStatusPlaces");
     $router -> register("newPlace","Place","newPlace");
-    $router -> register("updatePlaceStatus","Place","updatePlaceStatus");
+    $router -> register("updatePlace","Place","updatePlace");
 
     $router -> register("getCustomerAsID","Customer","getCustomerAsID");
     $router -> register("getCustomerAsCustid","Customer","getCustomerAsCustid");

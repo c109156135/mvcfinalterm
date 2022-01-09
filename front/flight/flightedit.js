@@ -3,7 +3,7 @@ import { flightshow } from "./flightshow.js";
 function flightedit() {
     let data = {
         "Flight_id":parseInt($("#Flight_id").val()),
-        "workday":$("#workday").val(),
+        "workday":$(".selector").val(),
         "Takeoff_place":$("#Takeoff_place").val(),
         "Arrived_place":$("#Arrived_place").val(),
         "Takeoff_time":$("#Takeoff_time").val(),

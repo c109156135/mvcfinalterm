@@ -12,6 +12,7 @@ function placeshow() {
                 str += `<th>售票場所編號</th>`;
                 str += `<th>售票場所名稱</th>`;
                 str += `<th>售票地點營業狀態</th>`;
+                str += `<th>修改</th>`;
                 str += `</thead>`;
                 str += `<tbody>`;
                 rows.forEach(element => {

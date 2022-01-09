@@ -31,10 +31,11 @@ class Place extends Controller
         return $this->em->newPlace($Place_Name);
     }
     
-    public function updatePlaceStatus() {
+    public function updatePlace() {
         $Place_id = $_POST['Place_id'];
         $Place_Status = $_POST['Place_Status'];
-        return $this->em->updatePlaceStatus($Place_id,$Place_Status);
+        $Place_Name = $_POST['Place_Name'];
+        return $this->em->updatePlace($Place_id,$Place_Status,$Place_Name);
     }
 }
 

@@ -1,4 +1,5 @@
 import { Request } from "../Request.js";
+import { placeedit } from "./placeedit.js";
 import { placeshow } from "./placeshow.js";
 function placeeditshow(Place_id,str){
     let data = {
@@ -19,7 +20,10 @@ function placeeditshow(Place_id,str){
               <div class="modal-body">
                 售票場所編號:<input type="text" id="Place_id" unselectable="on" readonly><br><br>
                 售票場所地點:<input type="text" id="Place_Name"><br><br>
-                售票場所營業狀態:<input type="text" id="Place_Status"><br><br>
+                售票場所營業狀態:<select name="Place_Status" class="selector">
+                <option value="OPEN">OPEN</option>
+                <option value="CLOSE">CLOSE</option>
+                </select>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-primary" id ="changeplace">修改</button>
@@ -29,24 +33,23 @@ function placeeditshow(Place_id,str){
           </div>
           </div>`;
         $("#content").html(str);
-        console.log(rows);
         rows.forEach(element => {
           $("#Place_id").val(element['Place_id']);
           $("#Place_Name").val(element['Place_Name']);
-          $("#Place_Status").val(element['Place_Status']);
+          $(".selector").val(element['Place_Status']);
         });
 
         $('#myTable').DataTable();
         var modalToggle = document.getElementById('exampleModal');
         $(modalToggle).modal('show');
         $("button[id=changeplace]").click(function (e) { 
-          placeshow();
+          placeedit();
           $(modalToggle).modal('hide');
         });
         $("button[id=editplace]").click(function (e) { 
-            const Place_id = $(this).val();
-            console.log(Place_id);
-        });
+          const Place_id = $(this).val();
+          placeeditshow(Place_id,str);
+      });
     })
     .catch(err => {
         console.error(err); 

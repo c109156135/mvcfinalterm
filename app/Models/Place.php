@@ -37,10 +37,10 @@ class Place{
         return DB::insert($sql,array($Place_Name)); 
     }
 
-    public function updatePlaceStatus($Place_id,$Place_Status){
+    public function updatePlace($Place_id,$Place_Status,$Place_Name){
         DB::connect();
-        $sql = "UPDATE `place` SET `Place_Status` = ? WHERE `place`.`Place_id` = ?";
-        return DB::update($sql, array($Place_Status,$Place_id));
+        $sql = "UPDATE `place` SET `Place_Status` = ?, `Place_Name` = ? WHERE `place`.`Place_id` = ?";
+        return DB::update($sql, array($Place_Status,$Place_Name,$Place_id));
     }
 
 }

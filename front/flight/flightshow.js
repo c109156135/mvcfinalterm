@@ -1,4 +1,5 @@
 import { Request } from "../Request.js";
+import { showaddflight } from "./showaddflight.js";
 import { flighteditshow } from "./flighteditshow.js";
 function flightshow() {
     Request().get("/public/index.php?action=getFlights")
@@ -7,7 +8,8 @@ function flightshow() {
         switch (response['status']) {
             case 200:
                 const rows = response['result'];
-                let str = `<table id="myTable" class="display">`;
+                let str = `<button id="addflight" class="btn btn-success btn-sm">新增班機</button>`;
+                str += `<table id="myTable" class="display">`;
                 str += `<thead>`
                 str += `<th>航班編號</th>`;
                 str += `<th>航班出發星期</th>`;
@@ -34,6 +36,10 @@ function flightshow() {
                 $("button[id=editflight]").click(function (e) { 
                     const Flight_id = $(this).val();
                     flighteditshow(Flight_id,str);
+                });
+                $("#addflight").click(function (e) { 
+                    showaddflight(str);
+                    
                 });
 
                 break;
