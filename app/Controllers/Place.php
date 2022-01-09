@@ -28,7 +28,8 @@ class Place extends Controller
     
     public function newPlace() {
         $Place_Name = $_POST['Place_Name'];
-        return $this->em->newPlace($Place_Name);
+        $Place_Status = $_POST['Place_Status'];
+        return $this->em->newPlace($Place_Name,$Place_Status);
     }
     
     public function updatePlace() {

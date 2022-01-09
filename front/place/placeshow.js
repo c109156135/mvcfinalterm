@@ -1,5 +1,6 @@
 import { Request } from "../Request.js";
 import { placeeditshow } from "./placeeditshow.js";
+import { showaddplace } from "./showaddplace.js";
 function placeshow() {
     Request().get("/public/index.php?action=getPlaces")
     .then(function (resp){
@@ -7,7 +8,8 @@ function placeshow() {
         switch (response['status']) {
             case 200:
                 const rows = response['result'];
-                let str = `<table id="myTable" class="display">`;
+                let str = `<button id="addplace" class="btn btn-success btn-sm">新增售票地點</button>`;
+                str += `<table id="myTable" class="display">`;
                 str += `<thead>`
                 str += `<th>售票場所編號</th>`;
                 str += `<th>售票場所名稱</th>`;
@@ -29,6 +31,9 @@ function placeshow() {
                 $("button[id=editplace]").click(function (e) { 
                     const Place_id = $(this).val();
                     placeeditshow(Place_id,str);
+                });
+                $("button[id=addplace]").click(function (e) { 
+                    showaddplace(str);
                 });
 
                 break;

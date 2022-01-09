@@ -31,10 +31,10 @@ class Place{
         return DB::select($sql,$arg);
     }
 
-    public function newPlace($Place_Name){
+    public function newPlace($Place_Name,$Place_Status){
         DB::connect();
-        $sql = "INSERT INTO `place`(`Place_id`, `Place_Name`, `Place_Status`) VALUES ('',?,'OPEN')";
-        return DB::insert($sql,array($Place_Name)); 
+        $sql = "INSERT INTO `place`(`Place_id`, `Place_Name`, `Place_Status`) VALUES ('',?,?)";
+        return DB::insert($sql,array($Place_Name,$Place_Status)); 
     }
 
     public function updatePlace($Place_id,$Place_Status,$Place_Name){
