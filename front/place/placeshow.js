@@ -28,7 +28,6 @@ function placeshow() {
                 $("button[id=editplace]").click(function (e) { 
                     const Place_id = $(this).val();
                     placeeditshow(Place_id,str);
-                    console.log("123");
                 });
 
                 break;
