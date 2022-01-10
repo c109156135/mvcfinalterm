@@ -11,8 +11,9 @@ function addflight(){
     console.log(data);
     Request().post("/public/index.php?action=newflight",Qs.stringify(data))
     .then(function (resp){
-        console.log(resp)
+        console.log(resp['data']['result']);
         flightshow();
+        
     })
     .catch(err => {
         console.error(err); 

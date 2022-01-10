@@ -1,6 +1,7 @@
 import { customershow } from "./customer/customershow1.js";
 import { flightshow } from "./flight/flightshow.js";
 import { placeshow } from "./place/placeshow.js";
+import { planeshow } from "./plane/planeshow.js";
 function startpage() {
     const sp=`
     <button id="customer" class="btn btn-primary btn-sm">顧客管理</button>
@@ -28,7 +29,7 @@ function startpage() {
     });
 
     $("#plane").click(function (e) { 
-        console.log("123");
+        planeshow();
     });
 }
 export {startpage}

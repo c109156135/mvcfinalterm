@@ -5,6 +5,9 @@
     $router -> register("updateFlight","Plane","updateFlight");
     $router -> register("updatePlaneStatus","Plane","updatePlaneStatus");
     $router -> register("newPlane","Plane","newPlane");
+    $router -> register("addPlaneSeat","Plane","addPlaneSeat");
+    $router -> register("addPlane","Plane","addPlane");
+    $router -> register("getPlanesAsName","Plane","getPlanesAsName");
 
     $router -> register("getPlaces","Place","getPlaces");
     $router -> register("getPlacesAsid","Place","getPlacesAsid");

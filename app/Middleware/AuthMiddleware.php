@@ -28,8 +28,7 @@ class AuthMiddleware {
         $password = $_POST['password'];
 
         //做登入判斷
-
-
+        
         $jwt = self::genToken($id);
         $response['status'] = 200;
         $response['message'] = "Access granted";
@@ -41,7 +40,7 @@ class AuthMiddleware {
         $issuer_claim = "http://localhost";
         $audience_claim = "http://localhost";
         $issuedat_claim = time(); // issued at
-        $expire_claim = $issuedat_claim + 30;
+        $expire_claim = $issuedat_claim + 120;
         $payload = array(
             "iss" => $issuer_claim,
             "aud" => $audience_claim,
