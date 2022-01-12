@@ -30,6 +30,10 @@ class Plane extends Controller
         $Plane_status = $_POST['Plane_status'];
         return $this->em->getStatusPlanes($Plane_status);
     }
+
+    public function getAirport() {
+        return $this->em->getAirport();
+    }
     
     public function newPlane() {
         $Plane_name = $_POST['Plane_name'];
@@ -42,6 +46,13 @@ class Plane extends Controller
         $Plane_id = $_POST['Plane_id'];
         return $this->em->addPlane($Plane_id);
     }
+
+    public function showPlaneseat(){
+        $Plane_id = $_POST['Plane_id'];
+        $seat_status = $_POST['seat_status'];
+        return $this->em->showPlaneseat($Plane_id,$seat_status);
+    }
+
 
     public function addPlaneSeat() {
         $Plane_id = $_POST['Plane_id'];
@@ -66,6 +77,25 @@ class Plane extends Controller
         return $this->em->updatePlaneStatus($Plane_id,$Plane_status);
     }
 
+    public function updatePlane(){
+        $Plane_id = $_POST['Plane_id'];
+        $Plane_status = $_POST['Plane_status'];
+        $Flight_id = $_POST['Flight_id'];
+        $Plane_name = $_POST['Plane_name'];
+        return $this->em->updatePlane($Plane_id,$Plane_status,$Flight_id,$Plane_name);
+    }
+    public function updatePlaneseatstatus(){
+        $Plane_id = $_POST['Plane_id'];
+        $seat_status = $_POST['seat_status'];
+        $seat_id = $_POST['seat_id'];
+        if ($seat_status == "empty"){
+            $seat_status = "booked";
+        } else {
+            $seat_status = "empty";
+        }
+        
+        return $this->em->updatePlaneseatstatus($Plane_id,$seat_status,$seat_id);
+    }
 
 }
 

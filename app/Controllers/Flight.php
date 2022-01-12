@@ -12,16 +12,9 @@ class Flight extends Controller
     }
 
     public function getFlight(){
+        $weekarray=array(7,1,2,3,4,5,6);
         $date = $_POST['date'];
-        //轉成數字型態and判斷該日星期
-        $date = intval($date);
-        $workday = date("w",$date);
-        //將函式判斷出來的變數回歸正常的星期
-        if ($workday == 0) {
-            $workday = 7;
-        } else {
-            $workday = $workday - 1;
-        }
+        $workday = $weekarray[date("w",strtotime($date))];
         $Takeoff_Place = $_POST['Takeoff_Place'];
         $Arrived_place = $_POST['Arrived_place'];
         return $this->em->getFlight($workday,$Takeoff_Place,$Arrived_place);
@@ -30,6 +23,11 @@ class Flight extends Controller
     public function getFlightAsId(){
         $Flight_id = $_POST['Flight_id'];
         return $this->em->getFlightAsId($Flight_id);
+    }
+    
+    public function getFlightasplaneid(){
+        $Flight_id = $_POST['Flight_id'];
+        return $this->em->getFlightasplaneid($Flight_id);
     }
     
     public function newflight(){

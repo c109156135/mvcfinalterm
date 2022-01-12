@@ -13,6 +13,18 @@ class Flight{
         return DB::select($sql,$arg);
     }
 
+    public function getFlightasplaneid($Flight_id){
+        //dbname is mvcfinal
+        DB::connect();
+        $sql = "SELECT plane.Plane_id
+        from flight,plane
+        WHERE flight.Flight_id = plane.Flight_id
+        AND	flight.Flight_id = ?";
+        $arg = array($Flight_id);
+        
+        return DB::select($sql,$arg);
+    }
+
     public function getFlightAsId($Flight_id){
         //dbname is mvcfinal
         DB::connect();

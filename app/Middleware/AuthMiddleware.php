@@ -3,13 +3,11 @@ namespace app\Middleware;
 require_once __DIR__.'/../../vendor/Autoload.php';
 use Exception;
 use \vendor\JWT\JWT;
+use \vendor\Router;
 class AuthMiddleware {
     public static function checkToken(){
         $headers = getallheaders();
         $jwt = $headers['Authorization'];
-        if ($jwt == 'undefined') {
-            return null;
-        }
         $secret_key = "wongkey";
         try {
             $payload = JWT::decode($jwt, $secret_key, array('HS256'));
@@ -25,8 +23,12 @@ class AuthMiddleware {
     }
     public static function doLogin(){
         $id = $_POST['id'];
-        $password = $_POST['password'];
-
+        $router = new Router;
+        require_once __DIR__."/../../routes/web.php";
+        $response = $router->run("doLogin");
+        if (isset($responseToken['token'])) {
+            $response['token'] = $responseToken['token'];
+        }
         //做登入判斷
         
         $jwt = self::genToken($id);

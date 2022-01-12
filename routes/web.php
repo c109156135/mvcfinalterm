@@ -8,6 +8,10 @@
     $router -> register("addPlaneSeat","Plane","addPlaneSeat");
     $router -> register("addPlane","Plane","addPlane");
     $router -> register("getPlanesAsName","Plane","getPlanesAsName");
+    $router -> register("updatePlane","Plane","updatePlane");
+    $router -> register("showPlaneseat","Plane","showPlaneseat");
+    $router -> register("updatePlaneseatstatus","Plane","updatePlaneseatstatus");
+    $router -> register("getAirport","Plane","getAirport");
 
     $router -> register("getPlaces","Place","getPlaces");
     $router -> register("getPlacesAsid","Place","getPlacesAsid");
@@ -26,6 +30,7 @@
     $router -> register("newflight","Flight","newflight");
     $router -> register("getFlights","Flight","getFlights");
     $router -> register("updateFlights","Flight","updateFlights");
+    $router -> register("getFlightasplaneid","Flight","getFlightasplaneid");
     
     $router -> register("getflight_recordsAsFlightid","Flight_records","getflight_recordsAsFlightid");
     $router -> register("newflight_records","Flight_records","newflight_records");
@@ -34,6 +39,13 @@
     $router -> register("getTicketsAsCustomerid","Tickets","getTicketsAsCustomerid");
     $router -> register("getTicketsAsFlightid","Tickets","getTicketsAsFlightid");
     $router -> register("newTicket","Tickets","newTicket");
+    $router -> register("getvalidTickets","Tickets","getvalidTickets");
+    $router -> register("updateTicketsvalid","Tickets","updateTicketsvalid");
+    $router -> register("newTicket_detail","Tickets","newTicket_detail");
+    $router -> register("getlastdetailid","Tickets","getlastdetailid");
+    $router -> register("getticketasID","Tickets","getticketasID");
+
+    $router -> register("doLogin","User","doLogin");
 
 
 
